@@ -1,0 +1,40 @@
+{
+  "name": "protocoloonline",
+  "version": "1.0.0",
+  "author": "AFESBJ",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BomJesus/FAEConnect.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-datetime-input": "^3.2.2",
+    "angular-filter": "^0.5.11",
+    "angular-input-masks": "^2.4.0",
+    "angular-loading-bar": "^0.9.0",
+    "angular-sanitize": "^1.6.1",
+    "angular-toastr": "^2.0.0",
+    "angular-ui-router": "^0.3.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "moment": "^2.14.1",
+    "string-mask": "^0.3.0",
+    "sweetalert": "^1.1.3"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}
