@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-16 01:02:03 */
+/*! protocoloonline 2017-02-17 03:02:38 */
 (function() {
 	'use strict';
 
@@ -116,7 +116,7 @@
 (function() {
 	'use strict';
 
-	angular.module('protocolooApp').filter('datetime', datetime);
+	angular.module('protocoloApp').filter('datetime', datetime);
 
 	datetime.$inject = [ ];
 
@@ -146,5 +146,83 @@
 
 			return moment(value).isSame(valuesame);
 		};
+	}
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').controller('IndexController', IndexController);
+
+	IndexController.$inject = ['$state', '$stateParams'];
+
+	function IndexController($state, $stateParams) {
+		var ctrl = this;
+
+		ctrl.welcome = "";
+
+		ctrl.init = function() {
+			ctrl.welcome = "Bem vindo";
+		}();
+	};
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').config(stateConfig);
+
+	stateConfig.$inject = [ '$stateProvider' ];
+
+	function stateConfig($stateProvider) {
+		$stateProvider.state('index', {
+			url: '',
+			views: {
+				'content' : {
+					templateUrl : 'app/views/index/index.html',
+					controller : 'IndexController',
+					controllerAs : 'ctrl'
+				}
+			}
+		});
+	}
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').controller('ProtocoloOnLineController', ProtocoloOnLineController);
+
+	ProtocoloOnLineController.$inject = ['$state', '$stateParams'];
+
+	function ProtocoloOnLineController($state, $stateParams) {
+		var ctrl = this;
+
+		ctrl.welcome = "";
+
+		ctrl.init = function() {
+			
+		}();
+	};
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').config(stateConfig);
+
+	stateConfig.$inject = [ '$stateProvider' ];
+
+	function stateConfig($stateProvider) {
+		$stateProvider.state('menu', {
+			url: '/menu',
+			views: {
+				'content' : {
+					templateUrl : 'app/views/protocoloonline/menu.html',
+					controller : 'ProtocoloOnLineController',
+					controllerAs : 'ctrl'
+				}
+			}
+		});
 	}
 })();

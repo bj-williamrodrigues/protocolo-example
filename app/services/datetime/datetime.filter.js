@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('protocolooApp').filter('datetime', datetime);
+	angular.module('protocoloApp').filter('datetime', datetime);
 
 	datetime.$inject = [ ];
 
