@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-20 03:02:07 */
+/*! protocoloonline 2017-02-20 06:02:02 */
 (function() {
 	'use strict';
 
@@ -153,15 +153,19 @@
 
 	angular.module('protocoloApp').controller('IndexController', IndexController);
 
-	IndexController.$inject = ['$state', '$stateParams'];
+	IndexController.$inject = ['$state', '$stateParams','AjaxService'];
 
 	function IndexController($state, $stateParams) {
 		var ctrl = this;
-
+		
 		ctrl.welcome = "";
-
+		ctrl.numero = 0;
+		ctrl.json = "";
+		
+		
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
+			ctrl.numero = 123465;
 		}();
 	};
 })();
