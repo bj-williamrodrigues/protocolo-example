@@ -9,9 +9,14 @@
 		var ctrl = this;
 
 		ctrl.welcome = "";
+		ctrl.datetime = "";
+		ctrl.situacao = "0";
 
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
+			ctrl.datetime = moment();
+			ctrl.situacao = "0";
+
 		}();
 	};
 })();

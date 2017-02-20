@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-20 03:02:07 */
+/*! protocoloonline 2017-02-20 06:02:10 */
 (function() {
 	'use strict';
 
@@ -151,6 +151,25 @@
 (function() {
 	'use strict';
 
+	angular.module('protocoloApp').filter('situacao', situacao);
+
+	situacao.$inject = [ ];
+
+	function situacao() {
+		return function(situacao) {
+			if(situacao != "0") {
+				return "ATIVO"
+			}
+			else {
+				return "INATIVO";
+			}
+		};
+	}
+})();
+
+(function() {
+	'use strict';
+
 	angular.module('protocoloApp').controller('IndexController', IndexController);
 
 	IndexController.$inject = ['$state', '$stateParams'];
@@ -159,9 +178,14 @@
 		var ctrl = this;
 
 		ctrl.welcome = "";
+		ctrl.datetime = "";
+		ctrl.situacao = "0";
 
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
+			ctrl.datetime = moment();
+			ctrl.situacao = "0";
+
 		}();
 	};
 })();
