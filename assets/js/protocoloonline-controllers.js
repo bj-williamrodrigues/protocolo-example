@@ -151,6 +151,25 @@
 (function() {
 	'use strict';
 
+	angular.module('protocoloApp').filter('situacao', situacao);
+
+	situacao.$inject = [ ];
+
+	function situacao() {
+		return function(situacao) {
+			if(situacao != "0") {
+				return "ATIVO"
+			}
+			else {
+				return "INATIVO";
+			}
+		};
+	}
+})();
+
+(function() {
+	'use strict';
+
 	angular.module('protocoloApp').controller('ContactFormController', ContactFormController);
 
 	ContactFormController.$inject = ['$state', '$stateParams'];
@@ -199,6 +218,7 @@
 		var ctrl = this;
 		
 		ctrl.welcome = "";
+<<<<<<< HEAD
 		ctrl.numero = 0;
 		ctrl.json = "";
 		
@@ -206,6 +226,16 @@
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
 			ctrl.numero = 123465;
+=======
+		ctrl.datetime = "";
+		ctrl.situacao = "0";
+
+		ctrl.init = function() {
+			ctrl.welcome = "Bem vindo";
+			ctrl.datetime = moment();
+			ctrl.situacao = "0";
+
+>>>>>>> 825b04bba6d65171875e5be0db32be2386677298
 		}();
 	};
 })();

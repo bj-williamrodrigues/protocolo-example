@@ -9,13 +9,14 @@
 		var ctrl = this;
 		
 		ctrl.welcome = "";
-		ctrl.numero = 0;
-		ctrl.json = "";
-		
-		
+		ctrl.datetime = "";
+		ctrl.situacao = "0";
+
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
-			ctrl.numero = 123465;
+			ctrl.datetime = moment();
+			ctrl.situacao = "0";
+
 		}();
 	};
 })();
