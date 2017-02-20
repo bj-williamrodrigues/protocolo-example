@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-20 06:02:02 */
+/*! protocoloonline 2017-02-20 06:02:48 */
 (function() {
 	'use strict';
 
@@ -145,6 +145,46 @@
 
 			return moment(value).isSame(valuesame);
 		};
+	}
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').controller('ContactFormController', ContactFormController);
+
+	ContactFormController.$inject = ['$state', '$stateParams'];
+
+	function ContactFormController($state, $stateParams) {
+		var ctrl = this;
+
+		ctrl.welcome = "";
+
+		ctrl.init = function() {
+			
+		}();
+	};
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').config(stateConfig);
+
+	stateConfig.$inject = [ '$stateProvider' ];
+
+	function stateConfig($stateProvider) {
+		$stateProvider.state('contato', {
+			url: '/contato',
+			parent: 'template',
+			views: {
+				'conteudo' : {
+					templateUrl : 'app/views/contato/templatecontactform.html',
+					controller : 'ContactFormController',
+					controllerAs : 'ctrl'
+				}
+			}
+		});
 	}
 })();
 
