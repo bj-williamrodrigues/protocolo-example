@@ -8,8 +8,9 @@
 	function stateConfig($stateProvider) {
 		$stateProvider.state('menu', {
 			url: '/menu',
+			parent: 'template',
 			views: {
-				'content' : {
+				'conteudo' : {
 					templateUrl : 'app/views/protocoloonline/menu.html',
 					controller : 'ProtocoloOnLineController',
 					controllerAs : 'ctrl'

@@ -16,5 +16,4 @@
 	angular.module('protocoloApp').config(['$locationProvider', function($locationProvider) {
 		$locationProvider.hashPrefix('');
 	}]);
-
 })();

@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-17 03:02:38 */
+/*! protocoloonline 2017-02-20 03:02:07 */
 (function() {
 	'use strict';
 
@@ -17,7 +17,6 @@
 	angular.module('protocoloApp').config(['$locationProvider', function($locationProvider) {
 		$locationProvider.hashPrefix('');
 	}]);
-
 })();
 
 (function() {
@@ -177,8 +176,9 @@
 	function stateConfig($stateProvider) {
 		$stateProvider.state('index', {
 			url: '',
+			parent: 'template',
 			views: {
-				'content' : {
+				'conteudo' : {
 					templateUrl : 'app/views/index/index.html',
 					controller : 'IndexController',
 					controllerAs : 'ctrl'
@@ -216,11 +216,31 @@
 	function stateConfig($stateProvider) {
 		$stateProvider.state('menu', {
 			url: '/menu',
+			parent: 'template',
 			views: {
-				'content' : {
+				'conteudo' : {
 					templateUrl : 'app/views/protocoloonline/menu.html',
 					controller : 'ProtocoloOnLineController',
 					controllerAs : 'ctrl'
+				}
+			}
+		});
+	}
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').config(stateConfig);
+
+	stateConfig.$inject = [ '$stateProvider' ];
+
+	function stateConfig($stateProvider) {
+		$stateProvider.state('template', {
+			abstract: true,
+			views : {
+				'content@' : {
+					templateUrl : 'app/views/template.html'
 				}
 			}
 		});

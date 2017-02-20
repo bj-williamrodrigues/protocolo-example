@@ -8,8 +8,9 @@
 	function stateConfig($stateProvider) {
 		$stateProvider.state('index', {
 			url: '',
+			parent: 'template',
 			views: {
-				'content' : {
+				'conteudo' : {
 					templateUrl : 'app/views/index/index.html',
 					controller : 'IndexController',
 					controllerAs : 'ctrl'
