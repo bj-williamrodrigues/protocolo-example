@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*! protocoloonline 2017-02-20 05:02:32 */
-=======
-/*! protocoloonline 2017-02-20 06:02:48 */
->>>>>>> 1e822e2be5d06b4ea78a94415c80ad1128f8d83f
+/*! protocoloonline 2017-02-21 04:02:38 */
 (function() {
 	'use strict';
 
@@ -155,82 +151,18 @@
 (function() {
 	'use strict';
 
-	angular.module('protocoloApp').filter('situacao', situacao);
-
-	situacao.$inject = [ ];
-
-	function situacao() {
-		return function(situacao) {
-			if(situacao != "0") {
-				return "ATIVO"
-			}
-			else {
-				return "INATIVO";
-			}
-		};
-	}
-})();
-
-(function() {
-	'use strict';
-
-	angular.module('protocoloApp').controller('ContactFormController', ContactFormController);
-
-	ContactFormController.$inject = ['$state', '$stateParams'];
-
-	function ContactFormController($state, $stateParams) {
-		var ctrl = this;
-
-		ctrl.welcome = "";
-
-		ctrl.init = function() {
-			
-		}();
-	};
-})();
-
-(function() {
-	'use strict';
-
-	angular.module('protocoloApp').config(stateConfig);
-
-	stateConfig.$inject = [ '$stateProvider' ];
-
-	function stateConfig($stateProvider) {
-		$stateProvider.state('contato', {
-			url: '/contato',
-			parent: 'template',
-			views: {
-				'conteudo' : {
-					templateUrl : 'app/views/contato/templatecontactform.html',
-					controller : 'ContactFormController',
-					controllerAs : 'ctrl'
-				}
-			}
-		});
-	}
-})();
-
-(function() {
-	'use strict';
-
 	angular.module('protocoloApp').controller('IndexController', IndexController);
 
-<<<<<<< HEAD
 	IndexController.$inject = ['$state', '$stateParams', 'AjaxService'];
-=======
-	IndexController.$inject = ['$state', '$stateParams','AjaxService'];
->>>>>>> 1e822e2be5d06b4ea78a94415c80ad1128f8d83f
 
 	function IndexController($state, $stateParams, AjaxService) {
 		var ctrl = this;
-		
+
 		ctrl.welcome = "";
-<<<<<<< HEAD
 		ctrl.data = moment().format();
 
 		ctrl.init = function() {
-			ctrl.welcome = "Bem vindo 2....";
+			ctrl.welcome = "Bem vindo";
 
 			AjaxService.get({
 				url: 'json/menu.json',
@@ -239,26 +171,15 @@
 					console.log(result);
 				}
 			});
-=======
-<<<<<<< HEAD
-		ctrl.numero = 0;
-		ctrl.json = "";
-		
-		
-		ctrl.init = function() {
-			ctrl.welcome = "Bem vindo";
-			ctrl.numero = 123465;
-=======
-		ctrl.datetime = "";
-		ctrl.situacao = "0";
 
-		ctrl.init = function() {
-			ctrl.welcome = "Bem vindo";
-			ctrl.datetime = moment();
-			ctrl.situacao = "0";
-
->>>>>>> 825b04bba6d65171875e5be0db32be2386677298
->>>>>>> 1e822e2be5d06b4ea78a94415c80ad1128f8d83f
+			AjaxService.post({
+				url: 'api/user',
+				params: {},
+				data: {test: 123456},
+				success: function(result) {
+					console.log(result);
+				}
+			});
 		}();
 	};
 })();
@@ -342,22 +263,4 @@
 			}
 		});
 	}
-})();
-
-(function() {
-	'use strict';
-
-	angular.module('protocoloApp').controller('TesteController', TesteController);
-
-	TesteController.$inject = [];
-
-	function TesteController() {
-		var ctrl = this;
-
-		ctrl.soma = 0;
-
-		ctrl.init = function() {
-			ctrl.soma = 1 + 1;
-		};
-	};
 })();

@@ -12,12 +12,21 @@
 		ctrl.data = moment().format();
 
 		ctrl.init = function() {
-			ctrl.welcome = "Bem vindo 2....";
+			ctrl.welcome = "Bem vindo";
 
 			AjaxService.get({
 				url: 'json/menu.json',
 				params: {},
 				success: function(result){
+					console.log(result);
+				}
+			});
+
+			AjaxService.post({
+				url: 'api/user',
+				params: {},
+				data: {test: 123456},
+				success: function(result) {
 					console.log(result);
 				}
 			});
