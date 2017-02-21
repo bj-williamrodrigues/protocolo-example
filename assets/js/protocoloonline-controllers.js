@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-21 04:02:38 */
+/*! protocoloonline 2017-02-21 06:02:13 */
 (function() {
 	'use strict';
 
@@ -151,6 +151,40 @@
 (function() {
 	'use strict';
 
+	angular.module('protocoloApp').directive('login', ['AjaxService', 'toastr', function(AjaxService, toastr) {
+		return {
+			restrict: 'E',
+			templateUrl: 'app/components/login/login.html',
+			scope: {
+				email: '@',
+				senha: '@'
+			},
+			link: function(scope, elem, attr) {
+				scope.login = function() {
+					console.log(scope);
+					console.log(elem);
+					console.log(attr);
+
+					AjaxService.post({
+						url: 'api/user',
+						params: {},
+						data: {
+							email: scope.email,
+							senha: scope.senha
+						},
+						success: function(result) {
+							toastr.success('login efetuado!', 'OK!');
+						}
+					});
+				};
+			}
+		}
+	}]);
+})();
+
+(function() {
+	'use strict';
+
 	angular.module('protocoloApp').controller('IndexController', IndexController);
 
 	IndexController.$inject = ['$state', '$stateParams', 'AjaxService'];
@@ -192,7 +226,7 @@
 	stateConfig.$inject = [ '$stateProvider' ];
 
 	function stateConfig($stateProvider) {
-		$stateProvider.state('index', {
+		$stateProvider.state('login', {
 			url: '',
 			parent: 'template',
 			views: {

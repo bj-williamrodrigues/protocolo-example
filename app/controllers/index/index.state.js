@@ -6,7 +6,7 @@
 	stateConfig.$inject = [ '$stateProvider' ];
 
 	function stateConfig($stateProvider) {
-		$stateProvider.state('index', {
+		$stateProvider.state('login', {
 			url: '',
 			parent: 'template',
 			views: {
