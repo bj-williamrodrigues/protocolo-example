@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-20 03:02:07 */
+/*! protocoloonline 2017-02-20 05:02:32 */
 (function() {
 	'use strict';
 
@@ -153,15 +153,24 @@
 
 	angular.module('protocoloApp').controller('IndexController', IndexController);
 
-	IndexController.$inject = ['$state', '$stateParams'];
+	IndexController.$inject = ['$state', '$stateParams', 'AjaxService'];
 
-	function IndexController($state, $stateParams) {
+	function IndexController($state, $stateParams, AjaxService) {
 		var ctrl = this;
 
 		ctrl.welcome = "";
+		ctrl.data = moment().format();
 
 		ctrl.init = function() {
-			ctrl.welcome = "Bem vindo";
+			ctrl.welcome = "Bem vindo 2....";
+
+			AjaxService.get({
+				url: 'json/menu.json',
+				params: {},
+				success: function(result){
+					console.log(result);
+				}
+			});
 		}();
 	};
 })();
@@ -245,4 +254,22 @@
 			}
 		});
 	}
+})();
+
+(function() {
+	'use strict';
+
+	angular.module('protocoloApp').controller('TesteController', TesteController);
+
+	TesteController.$inject = [];
+
+	function TesteController() {
+		var ctrl = this;
+
+		ctrl.soma = 0;
+
+		ctrl.init = function() {
+			ctrl.soma = 1 + 1;
+		};
+	};
 })();
