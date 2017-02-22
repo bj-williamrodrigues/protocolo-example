@@ -14,6 +14,13 @@
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
 
+			AjaxService.jsonp({
+				url: 'http://mapasinterativos.ibge.gov.br/arcgis/rest/services/AMAZONIA/MapServer/layers?f=pjson',
+				success: function(result){
+					console.log(result);
+				}
+			});
+
 			AjaxService.get({
 				url: 'json/menu.json',
 				params: {},

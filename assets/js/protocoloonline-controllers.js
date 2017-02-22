@@ -1,4 +1,4 @@
-/*! protocoloonline 2017-02-21 06:02:13 */
+/*! protocoloonline 2017-02-22 09:02:57 */
 (function() {
 	'use strict';
 
@@ -24,9 +24,9 @@
 
 	angular.module('protocoloApp').service('AjaxService', AjaxService);
 
-	AjaxService.$inject = [ '$http' ];
+	AjaxService.$inject = [ '$http', '$templateCache', '$sce', '$sceDelegate' ];
 
-	function AjaxService($http) {
+	function AjaxService($http, $templateCache, $sce, $sceDelegate) {
 		this.get = function (get) {
 			return $http.get(get.url, {
 				method: "GET",
@@ -65,14 +65,16 @@
 		}
 
 		this.jsonp = function(jsonp) {
-			return $http.jsonp(jsonp.url).
-			success(function(data, status, headers, config) {
-				if(jsonp.success != undefined) {
-					jsonp.success(eval(data));
-				}
-			}).
-			error(function(data, status, headers, config) {
-				console.log(data);
+			$http({
+				method: 'JSONP',
+				url: $sce.trustAsResourceUrl(jsonp.url),
+				config: {jsonpCallbackParam: 'callback'}
+			}).then(function(response) {
+				jsonp.success(eval(response.data));
+			}, function(response) {
+				console.log(response);
+
+				console.log(response.data || 'Request failed');
 			});
 		}
 	}
@@ -197,6 +199,13 @@
 
 		ctrl.init = function() {
 			ctrl.welcome = "Bem vindo";
+
+			AjaxService.jsonp({
+				url: 'http://mapasinterativos.ibge.gov.br/arcgis/rest/services/AMAZONIA/MapServer/layers?f=pjson',
+				success: function(result){
+					console.log(result);
+				}
+			});
 
 			AjaxService.get({
 				url: 'json/menu.json',
