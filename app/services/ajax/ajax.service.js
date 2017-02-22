@@ -47,7 +47,11 @@
 			$http({
 				method: 'JSONP',
 				url: $sce.trustAsResourceUrl(jsonp.url),
-				config: {jsonpCallbackParam: 'callback'}
+				config: {jsonpCallbackParam: 'callback'},
+				headers: {
+					'Content-Type': 'charset=utf-8'
+				},
+				ignoreLoadingBar: post.loader ? true : false
 			}).then(function(response) {
 				jsonp.success(eval(response.data));
 			}, function(response) {
