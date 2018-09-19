@@ -23,7 +23,7 @@
     "angular-sanitize": "^1.6.1",
     "angular-toastr": "^2.0.0",
     "angular-ui-router": "^0.3.2",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.1.2",
     "font-awesome": "git+https://github.com/FortAwesome/Font-Awesome.git",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
